@@ -207,7 +207,7 @@ if (els.dropzone) {
 
   function getMethod() {
     const checked = els.methodCards.querySelector('input[name="method"]:checked');
-    return checked ? checked.value : 'delogo';
+    return checked ? checked.value : 'blur';
   }
 
   els.btnSubmit.addEventListener('click', async () => {

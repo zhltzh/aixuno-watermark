@@ -1,8 +1,9 @@
 import { applyStaticTexts, getLang, setLang, LANGUAGES } from './i18n.js';
-import { renderNetwork } from './network.js';
+import { renderNetwork, renderFooterSites } from './network.js';
 
 export function initPage(currentSite) {
   renderNetwork(currentSite);
+  renderFooterSites();
   applyStaticTexts();
   renderLangSwitch();
 }

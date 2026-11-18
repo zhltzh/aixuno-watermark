@@ -99,9 +99,9 @@
               <video id="wm-video" playsinline muted preload="metadata"></video>
               <canvas id="box-overlay" class="box-overlay"></canvas>
             </div>
-            <p class="footnote" style="text-align:center" data-i18n="w_stage_hint">Drag on the video to mark a watermark area — add as many boxes as you need.</p>
+            <p class="footnote footnote--center" data-i18n="w_stage_hint">Drag on the video to mark a watermark area — add as many boxes as you need.</p>
 
-            <div class="panel" style="margin-top:18px">
+            <div class="panel panel--tight">
               <h3 data-i18n="w_boxes_title">Selected areas</h3>
               <div class="boxes-list" id="boxes-list"></div>
             </div>
@@ -110,14 +110,14 @@
               <h3 data-i18n="w_method_title">Processing method</h3>
               <div class="method-cards" id="method-cards">
                 <label class="method-card selected">
-                  <input type="radio" name="method" value="delogo" checked />
-                  <h4 data-i18n="w_m_delogo_t">Heal (recommended)</h4>
-                  <p data-i18n="w_m_delogo_d">Interpolates surrounding pixels over the logo — best for static, semi-transparent marks.</p>
+                  <input type="radio" name="method" value="blur" checked />
+                  <h4 data-i18n="w_m_blur_t">Blur (recommended)</h4>
+                  <p data-i18n="w_m_blur_d">Strongly blurs the marked area — safest for busy or moving watermarks.</p>
                 </label>
                 <label class="method-card">
-                  <input type="radio" name="method" value="blur" />
-                  <h4 data-i18n="w_m_blur_t">Blur</h4>
-                  <p data-i18n="w_m_blur_d">Strongly blurs the marked area — safest for busy or moving watermarks.</p>
+                  <input type="radio" name="method" value="delogo" />
+                  <h4 data-i18n="w_m_delogo_t">Heal (experimental)</h4>
+                  <p data-i18n="w_m_delogo_d">Interpolates surrounding pixels over the logo — best for static, semi-transparent marks.</p>
                 </label>
                 <label class="method-card">
                   <input type="radio" name="method" value="crop" />
@@ -203,7 +203,7 @@
         </div>
       </section>
 
-      <section class="section" id="use-cases" style="background:var(--color-surface)">
+      <section class="section section--surface" id="use-cases">
         <div class="container">
           <p class="eyebrow" data-i18n="use_eyebrow">Use cases</p>
           <h2 data-i18n="use_title">For creators cleaning their own footage</h2>
@@ -226,11 +226,11 @@
             <a class="guide-card" href="./guides/watermark-box-selection-tips.html"><h3 data-i18n="guide2_title">Box selection tips</h3><p data-i18n="guide2_desc"></p><span class="text-link">→</span></a>
             <a class="guide-card" href="./guides/static-vs-moving-watermarks.html"><h3 data-i18n="guide3_title">Static vs moving watermarks</h3><p data-i18n="guide3_desc"></p><span class="text-link">→</span></a>
           </div>
-          <p style="margin-top:18px"><a class="text-link" href="./guides/index.html" data-i18n="guides_all">Browse all watermark guides</a></p>
+          <p class="section-more"><a class="text-link" href="./guides/index.html" data-i18n="guides_all">Browse all watermark guides</a></p>
         </div>
       </section>
 
-      <section class="section" id="faq" style="background:var(--color-surface)">
+      <section class="section section--surface" id="faq">
         <div class="container">
           <p class="eyebrow" data-i18n="faq_eyebrow">FAQ</p>
           <h2 data-i18n="faq_title">Frequently asked questions</h2>
@@ -251,14 +251,14 @@
           <p class="eyebrow" data-i18n="eco_eyebrow">Aixuno ecosystem</p>
           <h2 data-i18n="eco_title">More free tools from Aixuno</h2>
           <div class="ecosystem__grid">
-            <a class="ecosystem-card" href="https://aixuno.com/"><span class="ecosystem-card__mark">MD</span><strong>Markdown 转换</strong><span>AI answers into Word, PDF and clean Markdown.</span><em>↗</em></a>
-            <a class="ecosystem-card" href="https://image.aixuno.com/"><span class="ecosystem-card__mark">IMG</span><strong>Pixkit 图片</strong><span>Convert, resize and optimize images in your browser.</span><em>↗</em></a>
-            <a class="ecosystem-card" href="https://compress.aixuno.com/"><span class="ecosystem-card__mark">ZIP</span><strong>文件压缩</strong><span>Shrink images and documents for faster sharing.</span><em>↗</em></a>
-            <a class="ecosystem-card" href="https://pdf.aixuno.com/"><span class="ecosystem-card__mark">PDF</span><strong>PDF 工具</strong><span>Focused, browser-based PDF utilities.</span><em>↗</em></a>
-            <a class="ecosystem-card" href="https://bg.aixuno.com/"><span class="ecosystem-card__mark">BG</span><strong>AI 抠图</strong><span>Remove image backgrounds with AI.</span><em>↗</em></a>
-            <a class="ecosystem-card" href="https://scan.aixuno.com/"><span class="ecosystem-card__mark">DOC</span><strong>文档扫描</strong><span>Phone photos into crisp scanned PDFs with local OCR.</span><em>↗</em></a>
-            <a class="ecosystem-card" href="https://restore.aixuno.com/"><span class="ecosystem-card__mark">FIX</span><strong>老照片修复</strong><span>Restore old photos free, locally or with AI.</span><em>↗</em></a>
-            <a class="ecosystem-card" href="https://watermark.aixuno.com/"><span class="ecosystem-card__mark">WM</span><strong>视频去水印</strong><span>You are here — clean videos you own.</span><em>↗</em></a>
+            <a class="ecosystem-card" href="https://aixuno.com/"><span class="ecosystem-card__mark ecosystem-card__mark--amber">MD</span><strong data-i18n="eco_site_md">Markdown</strong><span data-i18n="eco_desc_md">Turn AI answers into Word, PDF and clean Markdown.</span><em>↗</em></a>
+            <a class="ecosystem-card" href="https://image.aixuno.com/"><span class="ecosystem-card__mark ecosystem-card__mark--fuchsia">IMG</span><strong data-i18n="eco_site_img">Pixkit Images</strong><span data-i18n="eco_desc_img">Convert, resize and optimize images in your browser.</span><em>↗</em></a>
+            <a class="ecosystem-card" href="https://compress.aixuno.com/"><span class="ecosystem-card__mark ecosystem-card__mark--sky">ZIP</span><strong data-i18n="eco_site_zip">File Compress</strong><span data-i18n="eco_desc_zip">Shrink images and documents for faster sharing.</span><em>↗</em></a>
+            <a class="ecosystem-card" href="https://pdf.aixuno.com/"><span class="ecosystem-card__mark ecosystem-card__mark--rose">PDF</span><strong data-i18n="eco_site_pdf">PDF Tools</strong><span data-i18n="eco_desc_pdf">Focused, browser-based PDF utilities.</span><em>↗</em></a>
+            <a class="ecosystem-card" href="https://bg.aixuno.com/"><span class="ecosystem-card__mark ecosystem-card__mark--violet">BG</span><strong data-i18n="eco_site_bg">AI Cutout</strong><span data-i18n="eco_desc_bg">Remove image backgrounds with AI.</span><em>↗</em></a>
+            <a class="ecosystem-card" href="https://scan.aixuno.com/"><span class="ecosystem-card__mark ecosystem-card__mark--blue">DOC</span><strong data-i18n="eco_site_scan">Document Scan</strong><span data-i18n="eco_desc_scan">Phone photos into crisp scanned PDFs with local OCR.</span><em>↗</em></a>
+            <a class="ecosystem-card" href="https://restore.aixuno.com/"><span class="ecosystem-card__mark ecosystem-card__mark--indigo">FIX</span><strong data-i18n="eco_site_restore">Photo Restore</strong><span data-i18n="eco_desc_restore">Restore old photos free, locally or with AI.</span><em>↗</em></a>
+            <a class="ecosystem-card is-current" href="https://watermark.aixuno.com/" aria-current="page"><span class="ecosystem-card__mark ecosystem-card__mark--cyan">WM</span><strong data-i18n="eco_site_watermark">Watermark Remover</strong><span data-i18n="eco_desc_watermark">Remove watermarks from videos you own.</span><em>↗</em></a>
           </div>
         </div>
       </section>
@@ -275,15 +275,7 @@
           <a href="./disclaimer.html" data-i18n="footer_disclaimer">Disclaimer</a>
           <a href="./changelog.html" data-i18n="footer_changelog">Changelog</a>
         </span>
-        <span class="footer-links">
-          <a href="https://aixuno.com/">Markdown</a>
-          <a href="https://image.aixuno.com/">Pixkit 图片</a>
-          <a href="https://compress.aixuno.com/">文件压缩</a>
-          <a href="https://pdf.aixuno.com/">PDF 工具</a>
-          <a href="https://bg.aixuno.com/">AI 抠图</a>
-          <a href="https://scan.aixuno.com/">文档扫描</a>
-          <a href="https://restore.aixuno.com/">老照片修复</a>
-        </span>
+        <span class="footer-sites" id="footer-sites"></span>
       </div>
     </footer>
 
