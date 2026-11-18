@@ -1,0 +1,15 @@
+{
+  "name": "aixuno-watermark",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Aixuno Watermark - remove watermarks from videos you own (server-side ffmpeg)",
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/build-pages.mjs && vite",
+    "build": "node scripts/build-pages.mjs && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.4.11"
+  }
+}

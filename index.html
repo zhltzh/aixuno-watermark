@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Video Watermark Remover Online Free — Heal, Blur or Crop | Aixuno Watermark</title>
+    <meta name="description" content="Remove watermarks from videos you own, free. Mark the watermark area, choose heal, blur or crop, and let server-side ffmpeg do the work. No sign-up, files auto-deleted in 24h." />
+    <meta name="theme-color" content="#2563eb" />
+    <link rel="canonical" href="https://watermark.aixuno.com/" />
+    <link rel="alternate" hreflang="en" href="https://watermark.aixuno.com/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://watermark.aixuno.com/zh/" />
+    <link rel="alternate" hreflang="x-default" href="https://watermark.aixuno.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Aixuno Watermark" />
+    <meta property="og:title" content="Video Watermark Remover Online Free | Aixuno Watermark" />
+    <meta property="og:description" content="Mark the watermark area, pick heal, blur or crop — server-side ffmpeg does the rest. Free, no sign-up." />
+    <meta property="og:url" content="https://watermark.aixuno.com/" />
+    <meta property="og:image" content="https://watermark.aixuno.com/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%232563eb'/%3E%3Cpath fill='%23fff' d='M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm2.5 3.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5ZM10 8.5v2h9v-2h-9Zm-4 5v2h5v-2H6Zm7 0v2h6v-2h-6Z'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="/src/site.css" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Aixuno Watermark",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "Web",
+      "url": "https://watermark.aixuno.com/",
+      "description": "Free online video watermark removal with heal, blur and crop methods, powered by server-side ffmpeg.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to remove a watermark from a video",
+      "step": [
+        { "@type": "HowToStep", "name": "Upload and mark", "text": "Drop your video and draw boxes over every watermark." },
+        { "@type": "HowToStep", "name": "Pick a method", "text": "Choose heal, blur or crop." },
+        { "@type": "HowToStep", "name": "Preview and download", "text": "Watch the progress, preview the cleaned video and download." }
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <div id="network" class="network"></div>
+    <header class="site-header">
+      <div class="site-header__inner container">
+        <a class="brand" href="./index.html"><span class="brand__mark">A</span>Aixuno <span class="brand__site" data-i18n="brand_site">Watermark</span></a>
+        <nav class="mini-nav">
+          <a href="#workspace" data-i18n="nav_tool">Removal tool</a>
+          <a href="./guides/index.html" data-i18n="nav_guides">Guides</a>
+          <a href="#faq" data-i18n="nav_faq">FAQ</a>
+        </nav>
+        <div class="lang-switch" id="lang-switch" role="group" data-i18n-aria="lang_label" aria-label="Language"></div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero">
+        <p class="eyebrow" data-i18n="hero_eyebrow">Free · No sign-up · Server-side ffmpeg</p>
+        <h1 data-i18n="hero_title">Remove Watermarks from Your Videos</h1>
+        <p class="lead" data-i18n="hero_lead"></p>
+        <div class="hero-cta">
+          <a class="button button--primary" href="#workspace" data-i18n="hero_cta_primary">Remove a watermark now</a>
+          <a class="button button--secondary" href="./guides/index.html" data-i18n="hero_cta_secondary">Read the guides</a>
+        </div>
+        <ul class="hero-badges">
+          <li data-i18n="hero_badge_1">Free to use</li>
+          <li data-i18n="hero_badge_2">No account needed</li>
+          <li data-i18n="hero_badge_3">Files auto-deleted in 24h</li>
+        </ul>
+      </section>
+
+      <section class="workspace section--tight" id="workspace">
+        <div class="container">
+          <p class="eyebrow" data-i18n="ws_eyebrow">Online video watermark removal</p>
+          <h2 data-i18n="ws_title">Upload your video</h2>
+          <p class="section-sub" data-i18n="ws_sub"></p>
+
+          <div id="wm-empty">
+            <div id="dropzone" class="dropzone" tabindex="0" role="button" data-i18n-aria="w_dz_main_strong" aria-label="Upload a video">
+              <input id="file-input" type="file" accept="video/mp4,video/quicktime,.mp4,.mov" hidden />
+              <div class="dz-inner">
+                <svg viewBox="0 0 24 24" width="44" height="44" aria-hidden="true">
+                  <path fill="currentColor" d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm2.5 3.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5ZM10 8.5v2h9v-2h-9Zm-4 5v2h5v-2H6Zm7 0v2h6v-2h-6Z" />
+                </svg>
+                <p class="dz-main"><strong data-i18n="w_dz_main_strong">Drop your video here</strong> <span data-i18n="w_dz_main_rest">or click to browse</span></p>
+                <p class="dz-hint" data-i18n="w_dz_hint">MP4 · MOV · up to 200MB and 5 minutes</p>
+              </div>
+            </div>
+            <p class="footnote"><span class="tag tag-cloud" data-i18n="badge_cloud">Cloud processing · files auto-deleted in 24h</span></p>
+          </div>
+
+          <div id="wm-editor" hidden>
+            <div class="box-stage" id="box-stage">
+              <video id="wm-video" playsinline muted preload="metadata"></video>
+              <canvas id="box-overlay" class="box-overlay"></canvas>
+            </div>
+            <p class="footnote" style="text-align:center" data-i18n="w_stage_hint">Drag on the video to mark a watermark area — add as many boxes as you need.</p>
+
+            <div class="panel" style="margin-top:18px">
+              <h3 data-i18n="w_boxes_title">Selected areas</h3>
+              <div class="boxes-list" id="boxes-list"></div>
+            </div>
+
+            <div class="panel">
+              <h3 data-i18n="w_method_title">Processing method</h3>
+              <div class="method-cards" id="method-cards">
+                <label class="method-card selected">
+                  <input type="radio" name="method" value="delogo" checked />
+                  <h4 data-i18n="w_m_delogo_t">Heal (recommended)</h4>
+                  <p data-i18n="w_m_delogo_d">Interpolates surrounding pixels over the logo — best for static, semi-transparent marks.</p>
+                </label>
+                <label class="method-card">
+                  <input type="radio" name="method" value="blur" />
+                  <h4 data-i18n="w_m_blur_t">Blur</h4>
+                  <p data-i18n="w_m_blur_d">Strongly blurs the marked area — safest for busy or moving watermarks.</p>
+                </label>
+                <label class="method-card">
+                  <input type="radio" name="method" value="crop" />
+                  <h4 data-i18n="w_m_crop_t">Crop out</h4>
+                  <p data-i18n="w_m_crop_d">Cuts off the marked edges — loses some picture, leaves zero traces.</p>
+                </label>
+              </div>
+            </div>
+
+            <label class="agree-row">
+              <input type="checkbox" id="wm-agree" />
+              <span data-i18n="w_disclaimer">I own this video or have the right to edit it.</span>
+            </label>
+
+            <div class="actions-row">
+              <button id="btn-submit" class="button button--primary" data-i18n="w_submit">Remove watermark</button>
+              <button id="btn-reset" class="button button--secondary" data-i18n="w_result_replay">Process another video</button>
+            </div>
+
+            <div id="wm-progress" class="progress-wrap" hidden>
+              <div class="progress"><div class="progress-fill" id="progress-fill"></div></div>
+              <p class="progress-text" id="progress-text">Queued…</p>
+            </div>
+
+            <div id="wm-result" class="panel" hidden>
+              <h3 data-i18n="w_result_title">Done — preview & download</h3>
+              <div class="result-media"><video id="result-video" controls playsinline></video></div>
+              <div class="actions-row">
+                <a id="btn-result-download" class="button button--primary" download data-i18n="w_result_download">Download video</a>
+                <button id="btn-result-replay" class="button button--secondary" data-i18n="w_result_replay">Process another video</button>
+              </div>
+              <p class="footnote" data-i18n="w_result_expires">Result available for 24 hours</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="examples">
+        <div class="container">
+          <p class="eyebrow" data-i18n="ex_eyebrow">Before / after</p>
+          <h2 data-i18n="ex_title">What watermark removal looks like</h2>
+          <p class="section-sub" data-i18n="ex_sub"></p>
+          <div class="examples-grid">
+            <article class="example-card">
+              <div class="example-card__images">
+                <figure><img src="/examples/example-1-before.jpg" alt="Video frame with a logo watermark before removal" loading="lazy" /><figcaption data-i18n="ex_before">Before</figcaption></figure>
+                <figure><img src="/examples/example-1-after.jpg" alt="Video frame after watermark removal" loading="lazy" /><figcaption data-i18n="ex_after">After</figcaption></figure>
+              </div>
+              <div class="example-card__body">
+                <h3 data-i18n="ex1_title">Corner logo, healed</h3>
+                <p data-i18n="ex1_desc"></p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="workflow section" id="how">
+        <div class="container">
+          <p class="eyebrow" data-i18n="steps_eyebrow">How it works</p>
+          <h2 data-i18n="steps_title">Clean videos in three steps</h2>
+          <p class="section-sub" data-i18n="steps_sub"></p>
+          <div class="steps">
+            <div class="step"><span class="step-num">01</span><h3 data-i18n="step1_title">Upload & mark</h3><p data-i18n="step1_desc"></p></div>
+            <div class="step"><span class="step-num">02</span><h3 data-i18n="step2_title">Pick a method</h3><p data-i18n="step2_desc"></p></div>
+            <div class="step"><span class="step-num">03</span><h3 data-i18n="step3_title">Preview & download</h3><p data-i18n="step3_desc"></p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="features">
+        <div class="container">
+          <p class="eyebrow" data-i18n="feat_eyebrow">Why Aixuno Watermark</p>
+          <h2 data-i18n="feat_title">Precise removal, honest processing</h2>
+          <div class="cards-grid">
+            <div class="feature-card"><div class="feature-icon"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M4 5h16v14H4zM8 9h8v6H8z"/></svg></div><h3 data-i18n="feat1_title">Three removal methods</h3><p data-i18n="feat1_desc"></p></div>
+            <div class="feature-card"><div class="feature-icon"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/></svg></div><h3 data-i18n="feat2_title">Multiple boxes</h3><p data-i18n="feat2_desc"></p></div>
+            <div class="feature-card"><div class="feature-icon"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm-2 6 6 4-6 4V8Z"/></svg></div><h3 data-i18n="feat3_title">Server-side ffmpeg</h3><p data-i18n="feat3_desc"></p></div>
+            <div class="feature-card"><div class="feature-icon"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M4 12h4v8H4zM10 6h4v14h-4zM16 10h4v10h-4z"/></svg></div><h3 data-i18n="feat4_title">Progress you can see</h3><p data-i18n="feat4_desc"></p></div>
+            <div class="feature-card"><div class="feature-icon"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3Z"/></svg></div><h3 data-i18n="feat5_title">Private by default</h3><p data-i18n="feat5_desc"></p></div>
+            <div class="feature-card"><div class="feature-icon"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm1 5v5.3l4 2.4-1 1.7-5-3V7h2Z"/></svg></div><h3 data-i18n="feat6_title">Copyright-first design</h3><p data-i18n="feat6_desc"></p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="use-cases" style="background:var(--color-surface)">
+        <div class="container">
+          <p class="eyebrow" data-i18n="use_eyebrow">Use cases</p>
+          <h2 data-i18n="use_title">For creators cleaning their own footage</h2>
+          <div class="cards-grid">
+            <div class="usecase"><h3 data-i18n="use1_title">Old project exports</h3><p data-i18n="use1_desc"></p></div>
+            <div class="usecase"><h3 data-i18n="use2_title">Screen recordings</h3><p data-i18n="use2_desc"></p></div>
+            <div class="usecase"><h3 data-i18n="use3_title">Client deliverables</h3><p data-i18n="use3_desc"></p></div>
+            <div class="usecase"><h3 data-i18n="use4_title">Family videos</h3><p data-i18n="use4_desc"></p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="guides">
+        <div class="container">
+          <p class="eyebrow" data-i18n="guides_eyebrow">Learn</p>
+          <h2 data-i18n="guides_title">Watermark removal guides</h2>
+          <p class="section-sub" data-i18n="guides_sub"></p>
+          <div class="cards-grid">
+            <a class="guide-card" href="./guides/choose-watermark-removal-method.html"><h3 data-i18n="guide1_title">Heal, blur or crop?</h3><p data-i18n="guide1_desc"></p><span class="text-link">→</span></a>
+            <a class="guide-card" href="./guides/watermark-box-selection-tips.html"><h3 data-i18n="guide2_title">Box selection tips</h3><p data-i18n="guide2_desc"></p><span class="text-link">→</span></a>
+            <a class="guide-card" href="./guides/static-vs-moving-watermarks.html"><h3 data-i18n="guide3_title">Static vs moving watermarks</h3><p data-i18n="guide3_desc"></p><span class="text-link">→</span></a>
+          </div>
+          <p style="margin-top:18px"><a class="text-link" href="./guides/index.html" data-i18n="guides_all">Browse all watermark guides</a></p>
+        </div>
+      </section>
+
+      <section class="section" id="faq" style="background:var(--color-surface)">
+        <div class="container">
+          <p class="eyebrow" data-i18n="faq_eyebrow">FAQ</p>
+          <h2 data-i18n="faq_title">Frequently asked questions</h2>
+          <div class="faq-list">
+            <details class="faq-item" open><summary data-i18n="faq1_q">Is the service free?</summary><p data-i18n="faq1_a"></p></details>
+            <details class="faq-item"><summary data-i18n="faq2_q">Do you remove watermarks from TikTok or Douyin links?</summary><p data-i18n="faq2_a"></p></details>
+            <details class="faq-item"><summary data-i18n="faq3_q">Which method gives the best result?</summary><p data-i18n="faq3_a"></p></details>
+            <details class="faq-item"><summary data-i18n="faq4_q">How long does processing take?</summary><p data-i18n="faq4_a"></p></details>
+            <details class="faq-item"><summary data-i18n="faq5_q">What happens to my video?</summary><p data-i18n="faq5_a"></p></details>
+            <details class="faq-item"><summary data-i18n="faq6_q">Can it remove moving watermarks?</summary><p data-i18n="faq6_a"></p></details>
+            <details class="faq-item"><summary data-i18n="faq7_q">Does it work on mobile?</summary><p data-i18n="faq7_a"></p></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="ecosystem">
+        <div class="container">
+          <p class="eyebrow" data-i18n="eco_eyebrow">Aixuno ecosystem</p>
+          <h2 data-i18n="eco_title">More free tools from Aixuno</h2>
+          <div class="ecosystem__grid">
+            <a class="ecosystem-card" href="https://aixuno.com/"><span class="ecosystem-card__mark">MD</span><strong>Markdown 转换</strong><span>AI answers into Word, PDF and clean Markdown.</span><em>↗</em></a>
+            <a class="ecosystem-card" href="https://image.aixuno.com/"><span class="ecosystem-card__mark">IMG</span><strong>Pixkit 图片</strong><span>Convert, resize and optimize images in your browser.</span><em>↗</em></a>
+            <a class="ecosystem-card" href="https://compress.aixuno.com/"><span class="ecosystem-card__mark">ZIP</span><strong>文件压缩</strong><span>Shrink images and documents for faster sharing.</span><em>↗</em></a>
+            <a class="ecosystem-card" href="https://pdf.aixuno.com/"><span class="ecosystem-card__mark">PDF</span><strong>PDF 工具</strong><span>Focused, browser-based PDF utilities.</span><em>↗</em></a>
+            <a class="ecosystem-card" href="https://bg.aixuno.com/"><span class="ecosystem-card__mark">BG</span><strong>AI 抠图</strong><span>Remove image backgrounds with AI.</span><em>↗</em></a>
+            <a class="ecosystem-card" href="https://scan.aixuno.com/"><span class="ecosystem-card__mark">DOC</span><strong>文档扫描</strong><span>Phone photos into crisp scanned PDFs with local OCR.</span><em>↗</em></a>
+            <a class="ecosystem-card" href="https://restore.aixuno.com/"><span class="ecosystem-card__mark">FIX</span><strong>老照片修复</strong><span>Restore old photos free, locally or with AI.</span><em>↗</em></a>
+            <a class="ecosystem-card" href="https://watermark.aixuno.com/"><span class="ecosystem-card__mark">WM</span><strong>视频去水印</strong><span>You are here — clean videos you own.</span><em>↗</em></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <span>© 2026 Aixuno · <span data-i18n="footer_rights">Your videos, cleaned with care.</span></span>
+        <span class="footer-links">
+          <a href="./about.html" data-i18n="footer_about">About</a>
+          <a href="./contact.html" data-i18n="footer_contact">Contact</a>
+          <a href="./privacy.html" data-i18n="footer_privacy">Privacy</a>
+          <a href="./terms.html" data-i18n="footer_terms">Terms</a>
+          <a href="./disclaimer.html" data-i18n="footer_disclaimer">Disclaimer</a>
+          <a href="./changelog.html" data-i18n="footer_changelog">Changelog</a>
+        </span>
+        <span class="footer-links">
+          <a href="https://aixuno.com/">Markdown</a>
+          <a href="https://image.aixuno.com/">Pixkit 图片</a>
+          <a href="https://compress.aixuno.com/">文件压缩</a>
+          <a href="https://pdf.aixuno.com/">PDF 工具</a>
+          <a href="https://bg.aixuno.com/">AI 抠图</a>
+          <a href="https://scan.aixuno.com/">文档扫描</a>
+          <a href="https://restore.aixuno.com/">老照片修复</a>
+        </span>
+      </div>
+    </footer>
+
+    <div id="busy" class="busy" hidden><div class="spinner" role="progressbar" aria-label="Processing"></div><p id="busy-text">Processing…</p></div>
+    <div id="toast" class="toast" role="status" hidden></div>
+    <script type="module" src="/src/home.js"></script>
+  </body>
+</html>

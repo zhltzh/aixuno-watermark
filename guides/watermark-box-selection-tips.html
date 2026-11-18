@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Box Selection Tips for Cleaner Watermark Removal | Aixuno Watermark</title>
+    <meta name="description" content="Tighter boxes, multiple areas and common selection mistakes to avoid." />
+    <meta name="theme-color" content="#2563eb" />
+    <link rel="canonical" href="https://watermark.aixuno.com/guides/watermark-box-selection-tips.html" />
+    <link rel="alternate" hreflang="en" href="https://watermark.aixuno.com/guides/watermark-box-selection-tips.html" />
+    <link rel="alternate" hreflang="zh-CN" href="https://watermark.aixuno.com/zh/guides/watermark-box-selection-tips.html" />
+    <link rel="alternate" hreflang="x-default" href="https://watermark.aixuno.com/guides/watermark-box-selection-tips.html" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Aixuno Watermark" />
+    <meta property="og:title" content="Box Selection Tips for Cleaner Watermark Removal" />
+    <meta property="og:description" content="Tighter boxes, multiple areas and common selection mistakes to avoid." />
+    <meta property="og:url" content="https://watermark.aixuno.com/guides/watermark-box-selection-tips.html" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%232563eb'/%3E%3Cpath fill='%23fff' d='M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm2.5 3.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5ZM10 8.5v2h9v-2h-9Zm-4 5v2h5v-2H6Zm7 0v2h6v-2h-6Z'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="/src/site.css" />
+  </head>
+  <body>
+    <div id="network" class="network"></div>
+    <header class="site-header">
+      <div class="site-header__inner container">
+        <a class="brand" href="../index.html"><span class="brand__mark">A</span>Aixuno <span class="brand__site">Watermark</span></a>
+        <nav class="mini-nav">
+          <a href="../index.html#workspace">Removal tool</a>
+          <a href="./index.html">Guides</a>
+        </nav>
+        <div class="lang-switch" id="lang-switch" role="group" aria-label="Language"></div>
+      </div>
+    </header>
+    <main id="main-content">
+      <section class="section">
+        <div class="container prose">
+          <h1>Box Selection Tips for Cleaner Watermark Removal</h1>
+          <p>The boxes you draw decide which pixels get processed. A little care here improves every method.</p><h2>Fit the watermark, not the whole corner</h2><p>Smaller boxes mean more original detail survives, especially for heal and crop. Draw just around the mark with a small margin.</p><h2>Use several boxes instead of one big one</h2><p>If there are two or three marks, mark them separately. Each box gets its own filter chain, which is cleaner than processing a large empty area between marks.</p><h2>Check the frame before submitting</h2><p>We use a frame near the start of the video. If a watermark fades in later, seek a frame where it is visible so your boxes cover it fully.</p><h2>Common mistakes</h2><p>Boxes that are too large (heal smears), boxes that miss the mark's edges (visible leftovers), and forgetting the ownership confirmation checkbox.</p>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <span>© 2026 Aixuno</span>
+        <span class="footer-links">
+          <a href="../about.html">About</a>
+          <a href="../contact.html">Contact</a>
+          <a href="../privacy.html">Privacy</a>
+          <a href="../terms.html">Terms</a>
+          <a href="../disclaimer.html">Disclaimer</a>
+          <a href="../changelog.html">Changelog</a>
+        </span>
+      </div>
+    </footer>
+    <script type="module">
+      import { initPage } from '/src/main.js';
+      initPage('watermark');
+    </script>
+  </body>
+</html>

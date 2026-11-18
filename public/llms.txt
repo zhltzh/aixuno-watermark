@@ -1,0 +1,19 @@
+# Aixuno Watermark
+
+Free online video watermark removal for videos you own. Heal (delogo), blur and crop methods with multiple boxes per video, processed by server-side ffmpeg. No sign-up. Uploads and results auto-deleted within 24 hours.
+
+## Pages
+- Home: https://watermark.aixuno.com/
+- Chinese home: https://watermark.aixuno.com/zh/
+- Guides: https://watermark.aixuno.com/guides/
+- Privacy: https://watermark.aixuno.com/privacy.html
+- Terms: https://watermark.aixuno.com/terms.html
+
+## Aixuno tool ecosystem
+- Markdown conversion: https://aixuno.com/
+- Image tools: https://image.aixuno.com/
+- File compression: https://compress.aixuno.com/
+- PDF tools: https://pdf.aixuno.com/
+- AI background removal: https://bg.aixuno.com/
+- Document scanner: https://scan.aixuno.com/
+- Old photo restoration: https://restore.aixuno.com/
