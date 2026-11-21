@@ -36,7 +36,7 @@ button, input, textarea, select { font: inherit; }
 
 .container { max-width: var(--container); margin: 0 auto; padding: 0 24px; }
 .section { padding: 64px 0; }
-.section--tight { padding: 40px 0; }
+.section--tight { padding: 22px 0 40px; }
 .eyebrow {
   color: var(--color-accent-strong);
   font-size: 13px;
@@ -108,13 +108,13 @@ button, input, textarea, select { font: inherit; }
 /* hero */
 .hero {
   position: relative; overflow: hidden; text-align: center;
-  padding: 72px 24px 56px;
+  padding: 40px 24px 28px;
   background: radial-gradient(circle at 50% -15%, var(--color-accent-soft) 0, rgba(255,255,255,0) 52%);
 }
-.hero h1 { font-size: clamp(30px, 4.6vw, 52px); letter-spacing: -0.03em; line-height: 1.12; margin: 0 auto 16px; max-width: 820px; }
-.hero .lead { color: var(--color-muted); font-size: clamp(16px, 2vw, 19px); max-width: 640px; margin: 0 auto 28px; }
+.hero h1 { font-size: clamp(30px, 4.6vw, 52px); letter-spacing: -0.03em; line-height: 1.12; margin: 0 auto 12px; max-width: 820px; }
+.hero .lead { color: var(--color-muted); font-size: clamp(16px, 2vw, 19px); max-width: 640px; margin: 0 auto 18px; }
 .hero-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-.hero-badges { list-style: none; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; padding: 0; margin: 26px 0 0; }
+.hero-badges { list-style: none; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; padding: 0; margin: 16px 0 0; }
 .hero-badges li {
   font-size: 13px; font-weight: 600; color: var(--color-muted);
   background: #fff; border: 1px solid var(--color-border); border-radius: 999px; padding: 5px 14px;
@@ -151,6 +151,11 @@ button, input, textarea, select { font: inherit; }
   cursor: pointer; transition: border-color 0.15s, background 0.15s; outline: none;
 }
 .dropzone:hover, .dropzone:focus-visible, .dropzone.dragover { border-color: var(--color-accent); background: var(--color-accent-soft); }
+.dropzone--pulse { animation: dropzone-pulse 0.6s ease 2; }
+@keyframes dropzone-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+  50% { box-shadow: 0 0 0 6px rgba(37, 99, 235, 0.35); }
+}
 .dz-inner { padding: 52px 24px; text-align: center; color: var(--color-muted); }
 .dz-inner svg { color: var(--color-accent); }
 .dz-main { font-size: 17px; margin: 14px 0 4px; color: var(--color-ink); }

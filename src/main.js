@@ -6,6 +6,20 @@ export function initPage(currentSite) {
   renderFooterSites();
   applyStaticTexts();
   renderLangSwitch();
+  bindHeroCtaFocus();
+}
+
+// 首屏 CTA：滚动到操作区并聚焦上传框，减少一次无效点击
+function bindHeroCtaFocus() {
+  document.querySelectorAll('a[href="#workspace"]').forEach((cta) => {
+    cta.addEventListener('click', () => {
+      const dropzone = document.getElementById('dropzone');
+      if (!dropzone) return;
+      dropzone.focus({ preventScroll: true });
+      dropzone.classList.add('dropzone--pulse');
+      setTimeout(() => dropzone.classList.remove('dropzone--pulse'), 1200);
+    });
+  });
 }
 
 function renderLangSwitch() {
