@@ -156,6 +156,62 @@ function layout({ lang, title, desc, path, body, isGuide }) {
   const footerTerms = lang === 'zh' ? '条款' : 'Terms';
   const footerDisclaimer = lang === 'zh' ? '免责声明' : 'Disclaimer';
   const footerChangelog = lang === 'zh' ? '更新日志' : 'Changelog';
+  // 结构化数据：指南页 Article、指南索引 CollectionPage、其余 WebPage，统一附 BreadcrumbList
+  const siteName = 'Aixuno Watermark';
+  const homeUrl = `https://watermark.aixuno.com/${lang === 'zh' ? 'zh/' : ''}`;
+  const isGuideIndex = path === '/guides/index.html';
+  const crumbs = [
+    { '@type': 'ListItem', position: 1, name: lang === 'zh' ? '首页' : 'Home', item: homeUrl },
+  ];
+  if (isGuide || isGuideIndex) {
+    crumbs.push({
+      '@type': 'ListItem',
+      position: 2,
+      name: lang === 'zh' ? '去水印教程' : 'Guides',
+      item: `https://watermark.aixuno.com/${lang === 'zh' ? 'zh/' : ''}guides/`,
+    });
+    crumbs.push({ '@type': 'ListItem', position: 3, name: title, item: canonical });
+  } else {
+    crumbs.push({ '@type': 'ListItem', position: 2, name: title, item: canonical });
+  }
+  const ldGraph = [];
+  if (isGuide && !isGuideIndex) {
+    ldGraph.push({
+      '@type': 'Article',
+      headline: title,
+      description: desc,
+      url: canonical,
+      image: 'https://watermark.aixuno.com/og-image.png',
+      inLanguage: lang === 'zh' ? 'zh-CN' : 'en',
+      author: { '@type': 'Organization', name: 'Aixuno', url: 'https://aixuno.com/' },
+      publisher: { '@type': 'Organization', name: siteName, url: 'https://watermark.aixuno.com/' },
+      datePublished: '2026-11-01',
+      dateModified: '2026-11-22',
+      mainEntityOfPage: canonical,
+      isAccessibleForFree: true,
+    });
+  } else if (isGuideIndex) {
+    ldGraph.push({
+      '@type': 'CollectionPage',
+      name: title,
+      description: desc,
+      url: canonical,
+      inLanguage: lang === 'zh' ? 'zh-CN' : 'en',
+      isPartOf: { '@type': 'WebSite', name: siteName, url: 'https://watermark.aixuno.com/' },
+    });
+  } else {
+    ldGraph.push({
+      '@type': 'WebPage',
+      name: title,
+      description: desc,
+      url: canonical,
+      inLanguage: lang === 'zh' ? 'zh-CN' : 'en',
+      isPartOf: { '@type': 'WebSite', name: siteName, url: 'https://watermark.aixuno.com/' },
+      publisher: { '@type': 'Organization', name: siteName, url: 'https://watermark.aixuno.com/' },
+    });
+  }
+  ldGraph.push({ '@type': 'BreadcrumbList', itemListElement: crumbs });
+  const structuredData = JSON.stringify({ '@context': 'https://schema.org', '@graph': ldGraph });
   const homeLink = path.startsWith('/guides') ? '../index.html' : './index.html';
   const guidesLink = path.startsWith('/guides') ? './index.html' : './guides/index.html';
   return `<!doctype html>
@@ -186,6 +242,7 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
+<script type="application/ld+json">${structuredData}</script>
 </head>
   <body>
     <div id="network" class="network"></div>
