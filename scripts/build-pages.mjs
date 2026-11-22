@@ -177,7 +177,16 @@ function layout({ lang, title, desc, path, body, isGuide }) {
     <meta property="og:url" content="${canonical}" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%232563eb'/%3E%3Cpath fill='%23fff' d='M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm2.5 3.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5ZM10 8.5v2h9v-2h-9Zm-4 5v2h5v-2H6Zm7 0v2h6v-2h-6Z'/%3E%3C/svg%3E" />
     <link rel="stylesheet" href="${cssHref}" />
-  </head>
+  <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?ef887868142b18a0c32bd9e20da7d91f";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
   <body>
     <div id="network" class="network"></div>
     <header class="site-header">
@@ -283,9 +292,37 @@ writeFileSync(
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join('\n')}\n</urlset>\n`
 );
 
+// 国内搜索引擎与通用搜索蜘蛛：显式允许抓取，仅屏蔽 API 与跟踪参数。
+const SEO_BOTS = [
+  'Baiduspider',
+  'Baiduspider-mobile',
+  'Baiduspider-image',
+  'Baiduspider-video',
+  'Baiduspider-news',
+  '360Spider',
+  'HaosouSpider',
+  'Sogou web spider',
+  'Sogou inst spider',
+  'Sogou Pic Spider',
+  'YisouSpider',
+  'Bytespider',
+  'Bingbot',
+  'msnbot',
+  'Googlebot',
+  'Googlebot-Image',
+];
+
+const robotGroup = (ua) =>
+  `User-agent: ${ua}\nAllow: /\nDisallow: /api/\nDisallow: /*?*utm_\nDisallow: /*?*from=\n`;
+
 writeFileSync(
   join(root, 'public', 'robots.txt'),
-  `User-agent: *\nAllow: /\nSitemap: https://watermark.aixuno.com/sitemap.xml\n`
+  [
+    robotGroup('*'),
+    '# 国内搜索引擎\n',
+    ...SEO_BOTS.map(robotGroup),
+    'Sitemap: https://watermark.aixuno.com/sitemap.xml\n',
+  ].join('\n')
 );
 
 writeFileSync(
