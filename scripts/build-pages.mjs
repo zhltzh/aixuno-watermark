@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, statSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -338,15 +338,38 @@ mkdirSync(join(root, 'zh'), { recursive: true });
 writeFileSync(join(root, 'zh', 'index.html'), zhHome);
 
 const allPaths = ['/', ...written.filter((p, i) => i % 2 === 0).map((p) => p.replace(/\.html$/, '').replace(/\/index$/, '/'))];
+
+// lastmod 取页面对应 HTML 文件的实际修改时间（yyyy-MM-dd，本地时区）
+function lastmod(relFile) {
+  const d = statSync(join(root, relFile)).mtime;
+  const pad = (n) => String(n).padStart(2, '0');
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+}
+
 const urls = [];
 for (const p of allPaths) {
   const clean = p.endsWith('/') ? p : `${p}.html`;
-  urls.push(`  <url><loc>https://watermark.aixuno.com${clean}</loc></url>`);
-  urls.push(`  <url><loc>https://watermark.aixuno.com/zh${clean}</loc></url>`);
+  const rel = clean === '/' ? 'index.html' : clean.endsWith('/') ? `${clean.slice(1)}index.html` : clean.slice(1);
+  const enUrl = `https://watermark.aixuno.com${clean}`;
+  const zhUrl = `https://watermark.aixuno.com/zh${clean}`;
+  // 每个页面都有中英双语版本，因此两条 URL 都附带完整的 hreflang 交替标注
+  for (const [loc, relFile] of [[enUrl, rel], [zhUrl, `zh/${rel}`]]) {
+    urls.push(
+      [
+        '  <url>',
+        `    <loc>${loc}</loc>`,
+        `    <lastmod>${lastmod(relFile)}</lastmod>`,
+        `    <xhtml:link rel="alternate" hreflang="zh-CN" href="${zhUrl}"/>`,
+        `    <xhtml:link rel="alternate" hreflang="en" href="${enUrl}"/>`,
+        `    <xhtml:link rel="alternate" hreflang="x-default" href="${enUrl}"/>`,
+        '  </url>',
+      ].join('\n')
+    );
+  }
 }
 writeFileSync(
   join(root, 'public', 'sitemap.xml'),
-  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join('\n')}\n</urlset>\n`
+  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls.join('\n')}\n</urlset>\n`
 );
 
 // 国内搜索引擎与通用搜索蜘蛛：显式允许抓取，仅屏蔽 API 与跟踪参数。
