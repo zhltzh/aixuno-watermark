@@ -1,4 +1,4 @@
-const API = import.meta.env.PROD ? 'https://api.aixuno.com/api' : '/api';
+const API = import.meta.env.PROD ? 'https://api.aizak.cn/api' : '/api';
 
 function timeout(ms) {
   return AbortSignal.timeout(ms);

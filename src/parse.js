@@ -3,7 +3,7 @@ import { initPage, showToast, setBusy } from './main.js';
 
 initPage('watermark');
 
-const API = import.meta.env.PROD ? 'https://api.aixuno.com' : 'http://127.0.0.1:8000';
+const API = import.meta.env.PROD ? 'https://api.aizak.cn' : 'http://127.0.0.1:8000';
 
 const els = {
   input: document.getElementById('link-input'),
