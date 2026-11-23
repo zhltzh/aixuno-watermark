@@ -124,6 +124,33 @@ const STRINGS = {
 
     eco_eyebrow: 'Aixuno ecosystem',
     eco_title: 'More free tools from Aixuno',
+
+    p_nav: 'Link parser',
+    p_title: 'Video Link Parser — Douyin, Kuaishou, Xiaohongshu, Bilibili',
+    p_hero_title: 'Paste a Link, Download Without Watermarks',
+    p_hero_lead: 'Paste a Douyin, Kuaishou, Xiaohongshu or Bilibili share link — we parse the original video or images for you to save.',
+    p_input_placeholder: 'Paste a Douyin / Kuaishou / Xiaohongshu / Bilibili share link',
+    p_btn_parse: 'Parse',
+    p_btn_paste: 'Paste',
+    p_supported: 'Supported: Douyin · Kuaishou · Xiaohongshu · Bilibili',
+    p_loading: 'Parsing…',
+    p_result_video: 'Video',
+    p_result_images: 'Images ({n})',
+    p_btn_download: 'Download',
+    p_btn_download_all: 'Download all images',
+    p_err_empty: 'Paste a link first',
+    p_err_unsupported: 'This platform is not supported yet',
+    p_err_failed: 'Parse failed — the link may have expired, try a fresh share link',
+    p_err_network: 'Network error — please try again',
+    p_copyright: 'For personal backup of content you have the right to save. Please respect creators and platform terms.',
+    p_platform_douyin: 'Douyin',
+    p_platform_kuaishou: 'Kuaishou',
+    p_platform_xiaohongshu: 'Xiaohongshu',
+    p_platform_bilibili: 'Bilibili',
+    p_entry_badge: 'New',
+    p_entry_title: 'Have a share link instead?',
+    p_entry_desc: 'Paste a Douyin / Kuaishou / Xiaohongshu / Bilibili link and download the original video — no upload needed.',
+    p_entry_link: 'Open link parser →',
     eco_site_md: 'Markdown',
     eco_desc_md: 'Turn AI answers into Word, PDF and clean Markdown.',
     eco_site_img: 'Pixkit Images',
@@ -274,6 +301,33 @@ const STRINGS = {
 
     eco_eyebrow: 'Aixuno 工具生态',
     eco_title: '更多 Aixuno 免费工具',
+
+    p_nav: '链接解析',
+    p_title: '视频链接解析 — 抖音、快手、小红书、B站',
+    p_hero_title: '粘贴链接，一键解析下载',
+    p_hero_lead: '粘贴抖音、快手、小红书或 B 站的分享链接，自动解析出原视频或图片，直接保存。',
+    p_input_placeholder: '粘贴抖音 / 快手 / 小红书 / B 站分享链接',
+    p_btn_parse: '解析',
+    p_btn_paste: '粘贴',
+    p_supported: '支持：抖音 · 快手 · 小红书 · B站',
+    p_loading: '解析中…',
+    p_result_video: '视频',
+    p_result_images: '图片（{n} 张）',
+    p_btn_download: '下载',
+    p_btn_download_all: '下载全部图片',
+    p_err_empty: '请先粘贴链接',
+    p_err_unsupported: '暂不支持该平台',
+    p_err_failed: '解析失败——链接可能已过期，请使用最新的分享链接',
+    p_err_network: '网络错误——请重试',
+    p_copyright: '仅用于备份你有权保存的内容，请尊重创作者版权与平台条款。',
+    p_platform_douyin: '抖音',
+    p_platform_kuaishou: '快手',
+    p_platform_xiaohongshu: '小红书',
+    p_platform_bilibili: 'B站',
+    p_entry_badge: '新',
+    p_entry_title: '有分享链接？',
+    p_entry_desc: '粘贴抖音 / 快手 / 小红书 / B 站链接，直接解析下载原视频——无需上传文件。',
+    p_entry_link: '打开链接解析 →',
     eco_site_md: 'Markdown 转换',
     eco_desc_md: '将 AI 回答转换为 Word、PDF 与干净的 Markdown。',
     eco_site_img: 'Pixkit 图片',
@@ -353,6 +407,10 @@ export function applyStaticTexts() {
   for (const el of document.querySelectorAll('[data-i18n]')) {
     const value = t(el.dataset.i18n);
     if (value != null) el.textContent = value;
+  }
+  for (const el of document.querySelectorAll('[data-i18n-placeholder]')) {
+    const value = t(el.dataset.i18nPlaceholder);
+    if (value != null) el.placeholder = value;
   }
   for (const el of document.querySelectorAll('[data-i18n-aria]')) {
     el.setAttribute('aria-label', t(el.dataset.i18nAria));
