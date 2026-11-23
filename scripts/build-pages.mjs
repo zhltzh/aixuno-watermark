@@ -1,4 +1,5 @@
 import { readFileSync, writeFileSync, mkdirSync, statSync } from 'node:fs';
+import { execSync } from 'node:child_process';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -339,8 +340,29 @@ writeFileSync(join(root, 'zh', 'index.html'), zhHome);
 
 const allPaths = ['/', ...written.filter((p, i) => i % 2 === 0).map((p) => p.replace(/\.html$/, '').replace(/\/index$/, '/'))];
 
-// lastmod 取页面对应 HTML 文件的实际修改时间（yyyy-MM-dd，本地时区）
+// lastmod 取页面对应 HTML 文件的最后一次 git 提交日期（yyyy-MM-dd）。
+// 页面每次构建都会重新生成，用 mtime 会让 lastmod 天天刷新，降低搜索引擎信任度。
+const gitDateCache = new Map();
+function gitLastCommitDate(relFile) {
+  if (gitDateCache.has(relFile)) return gitDateCache.get(relFile);
+  let date = '';
+  try {
+    const out = execSync(`git log -1 --format=%cs -- "${relFile}"`, {
+      cwd: root,
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+    }).trim();
+    if (/^\d{4}-\d{2}-\d{2}$/.test(out)) date = out;
+  } catch {
+    // 不在 git 环境或 git 不可用，交给 mtime 兜底
+  }
+  gitDateCache.set(relFile, date);
+  return date;
+}
+
 function lastmod(relFile) {
+  const gitDate = gitLastCommitDate(relFile);
+  if (gitDate) return gitDate;
   const d = statSync(join(root, relFile)).mtime;
   const pad = (n) => String(n).padStart(2, '0');
   return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
