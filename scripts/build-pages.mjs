@@ -340,7 +340,7 @@ const zhHome = home
 mkdirSync(join(root, 'zh'), { recursive: true });
 writeFileSync(join(root, 'zh', 'index.html'), zhHome);
 
-const allPaths = ['/', '/parse', ...written.filter((p, i) => i % 2 === 0).map((p) => p.replace(/\.html$/, '').replace(/\/index$/, '/'))];
+const allPaths = ['/', '/remove', ...written.filter((p, i) => i % 2 === 0).map((p) => p.replace(/\.html$/, '').replace(/\/index$/, '/'))];
 
 // lastmod 取页面对应 HTML 文件的最后一次 git 提交日期（yyyy-MM-dd）。
 // 页面每次构建都会重新生成，用 mtime 会让 lastmod 天天刷新，降低搜索引擎信任度。
