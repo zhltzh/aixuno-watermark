@@ -1,0 +1,79 @@
+﻿<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    width:1200px; height:630px; overflow:hidden; position:relative;
+    font-family:Inter,"PingFang SC","Microsoft YaHei",sans-serif;
+    background:linear-gradient(135deg,#0c4a6e 0%,#1d4ed8 52%,#0ea5e9 100%);
+    color:#fff;
+  }
+  .glow1 { position:absolute; width:560px; height:560px; border-radius:50%;
+    background:radial-gradient(circle,rgba(255,255,255,.16),transparent 70%); top:-200px; right:-140px; }
+  .glow2 { position:absolute; width:460px; height:460px; border-radius:50%;
+    background:radial-gradient(circle,rgba(125,211,252,.3),transparent 70%); bottom:-180px; left:-120px; }
+  .grid { position:absolute; inset:0;
+    background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
+                     linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+    background-size:48px 48px; }
+  .brand { position:absolute; top:46px; left:64px; display:flex; align-items:center; gap:14px; }
+  .brand .mark { width:46px; height:46px; border-radius:13px; background:#fff; color:#1d4ed8;
+    display:grid; place-items:center; font-size:27px; font-weight:800; box-shadow:0 8px 20px rgba(0,0,0,.25); }
+  .brand .name { font-size:23px; font-weight:700; }
+  .brand .site { font-size:23px; font-weight:600; color:#bae6fd; }
+  .main { position:absolute; left:64px; top:162px; width:620px; }
+  .eyebrow { font-size:15px; font-weight:800; letter-spacing:.18em; color:#bae6fd; margin-bottom:16px; }
+  h1 { font-size:64px; line-height:1.14; letter-spacing:-.01em; margin-bottom:18px; }
+  .sub { font-size:22px; color:#e0f2fe; line-height:1.55; }
+  .frame { position:absolute; right:56px; top:138px; width:420px; }
+  .vf { position:relative; border-radius:18px; overflow:hidden; box-shadow:0 24px 60px rgba(0,0,0,.4);
+    border:5px solid rgba(255,255,255,.92); transform:rotate(2deg); }
+  .vf img { display:block; width:100%; height:auto; }
+  .vf .wm { position:absolute; right:14px; top:12px; font-size:15px; font-weight:800; color:#fff;
+    background:rgba(0,0,0,.55); border-radius:8px; padding:6px 14px; letter-spacing:.06em; }
+  .vf .healed { position:absolute; right:14px; top:12px; font-size:15px; font-weight:800; color:#0c4a6e;
+    background:rgba(255,255,255,.9); border-radius:8px; padding:6px 14px; letter-spacing:.06em; }
+  .foot { position:absolute; bottom:46px; left:64px; right:64px; display:flex; align-items:center; justify-content:space-between; }
+  .chips { display:flex; gap:12px; }
+  .chip { font-size:16px; font-weight:600; color:#fff; background:rgba(255,255,255,.15);
+    border:1px solid rgba(255,255,255,.28); border-radius:999px; padding:9px 22px; }
+  .domain { font-size:21px; font-weight:700; color:#bae6fd; }
+</style>
+</head>
+<body>
+  <div class="grid"></div>
+  <div class="glow1"></div>
+  <div class="glow2"></div>
+
+  <div class="brand">
+    <span class="mark">A</span>
+    <span class="name">Aixuno</span>
+    <span class="site">Watermark</span>
+  </div>
+
+  <div class="main">
+    <p class="eyebrow">FREE 路 NO SIGN-UP 路 DOUYIN / KUAISHOU / XHS / BILIBILI</p>
+    <h1>瑙嗛鍘绘按鍗?br>绮樿创閾炬帴灏辫兘涓?/h1>
+    <p class="sub">閾炬帴瑙ｆ瀽涓€閿笅杞?路 瑙嗛妗嗛€夋摝闄?br>涓ょ鏂瑰紡锛屽共鍑€鍒╄惤</p>
+  </div>
+
+  <div class="frame">
+    <div class="vf">
+      <img src="file:///D:/鐪熺殑娓告垙/aixuno-watermark/public/examples/example-1-after.jpg">
+      <span class="healed">WATERMARK REMOVED</span>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="chips">
+      <span class="chip">閾炬帴瑙ｆ瀽涓嬭浇</span>
+      <span class="chip">妗嗛€夋摝闄ゆ按鍗?/span>
+      <span class="chip">鍏嶈垂 路 24h 鑷姩鍒犻櫎</span>
+    </div>
+    <span class="domain">watermark.aixuno.com</span>
+  </div>
+</body>
+</html>
+

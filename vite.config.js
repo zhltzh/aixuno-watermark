@@ -17,7 +17,7 @@ const pages = [
   'guides/video-watermark-copyright',
 ];
 
-const all = [...pages, ...pages.filter((p) => p !== 'parse').map((p) => `zh/${p}`)];
+const all = [...pages, ...pages.filter((p) => p !== 'parse').map((p) => `zh/${p}`), 'zh/parse'];
 
 export default defineConfig({
   build: {

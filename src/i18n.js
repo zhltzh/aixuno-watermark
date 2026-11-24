@@ -330,7 +330,7 @@ const STRINGS = {
     p_entry_link: '打开链接解析 →',
     eco_site_md: 'Markdown 转换',
     eco_desc_md: '将 AI 回答转换为 Word、PDF 与干净的 Markdown。',
-    eco_site_img: 'Pixkit 图片',
+    eco_site_img: 'Pixkit 图片批量处理',
     eco_desc_img: '在浏览器中转换、缩放与优化图片。',
     eco_site_zip: '文件压缩',
     eco_desc_zip: '压缩图片与文档，分享更快。',
