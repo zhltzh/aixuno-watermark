@@ -3,7 +3,7 @@ import { fileURLToPath } from 'node:url';
 
 const pages = [
   'index',
-  'parse',
+  'remove',
   'about',
   'contact',
   'changelog',
@@ -17,7 +17,7 @@ const pages = [
   'guides/video-watermark-copyright',
 ];
 
-const all = [...pages, ...pages.filter((p) => p !== 'parse').map((p) => `zh/${p}`), 'zh/parse'];
+const all = [...pages, ...pages.filter((p) => p !== 'remove').map((p) => `zh/${p}`), 'zh/parse'];
 
 export default defineConfig({
   build: {
