@@ -365,9 +365,15 @@ function gitLastCommitDate(relFile) {
 function lastmod(relFile) {
   const gitDate = gitLastCommitDate(relFile);
   if (gitDate) return gitDate;
-  const d = statSync(join(root, relFile)).mtime;
-  const pad = (n) => String(n).padStart(2, '0');
-  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+  try {
+    const d = statSync(join(root, relFile)).mtime;
+    const pad = (n) => String(n).padStart(2, '0');
+    return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+  } catch {
+    const d = new Date();
+    const pad = (n) => String(n).padStart(2, '0');
+    return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+  }
 }
 
 const urls = [];
