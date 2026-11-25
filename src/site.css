@@ -104,6 +104,7 @@ button, input, textarea, select { font: inherit; }
 .network .mark--blue { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
 .network .mark--indigo { background: linear-gradient(135deg, #6366f1, #4f46e5); }
 .network .mark--cyan { background: linear-gradient(135deg, #06b6d4, #2563eb); }
+.network .mark--pink { background: linear-gradient(135deg, #ec4899, #f43f5e); }
 
 /* hero */
 .hero {

@@ -1,15 +1,15 @@
 import { getLang } from './i18n.js';
 
 export const NETWORK_SITES = [
-  { id: 'markdown', href: 'https://aixuno.com/', mark: 'MD', label: 'Markdown 转换' },
-  { id: 'image', href: 'https://image.aixuno.com/', mark: 'IMG', label: '图片批量处理' },
-  { id: 'compress', href: 'https://compress.aixuno.com/', mark: 'ZIP', label: '文件压缩' },
-  { id: 'pdf', href: 'https://pdf.aixuno.com/', mark: 'PDF', label: 'PDF 工具' },
-  { id: 'bg', href: 'https://bg.aixuno.com/', mark: 'BG', label: 'AI 抠图' },
-  { id: 'scan', href: 'https://scan.aixuno.com/', mark: 'DOC', label: '文档扫描' },
-  { id: 'idphoto', href: 'https://idphoto.aixuno.com/', mark: 'ID', label: '证件照制作' },
-  { id: 'restore', href: 'https://restore.aixuno.com/', mark: 'FIX', label: '老照片修复' },
-  { id: 'watermark', href: 'https://watermark.aixuno.com/', mark: 'WM', label: '视频去水印' },
+  { id: 'markdown', href: 'https://aixuno.com/', mark: 'MD', tone: 'amber', label: { en: 'Markdown', zh: 'Markdown 转换' } },
+  { id: 'image', href: 'https://image.aixuno.com/', mark: 'IMG', tone: 'fuchsia', label: { en: 'Pixkit Images', zh: 'Pixkit 图片批量处理' } },
+  { id: 'compress', href: 'https://compress.aixuno.com/', mark: 'ZIP', tone: 'sky', label: { en: 'File Compress', zh: '文件压缩' } },
+  { id: 'pdf', href: 'https://pdf.aixuno.com/', mark: 'PDF', tone: 'rose', label: { en: 'PDF Tools', zh: 'PDF 工具' } },
+  { id: 'bg', href: 'https://bg.aixuno.com/', mark: 'BG', tone: 'violet', label: { en: 'AI Cutout', zh: 'AI 抠图' } },
+  { id: 'scan', href: 'https://scan.aixuno.com/', mark: 'DOC', tone: 'blue', label: { en: 'Document Scan', zh: '文档扫描' } },
+  { id: 'idphoto', href: 'https://idphoto.aixuno.com/', mark: 'ID', tone: 'pink', label: { en: 'ID Photo', zh: '证件照制作' } },
+  { id: 'restore', href: 'https://restore.aixuno.com/', mark: 'FIX', tone: 'indigo', label: { en: 'Photo Restore', zh: '老照片修复' } },
+  { id: 'watermark', href: 'https://watermark.aixuno.com/', mark: 'WM', tone: 'cyan', label: { en: 'Watermark Remover', zh: '视频去水印' } },
 ];
 
 let currentSiteId = null;
