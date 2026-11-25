@@ -134,20 +134,22 @@ async function downloadAll(images) {
   els.btnImagesDl.disabled = false;
 }
 
-els.btnParse.addEventListener('click', parse);
-els.input.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') parse();
-});
-els.btnPaste.addEventListener('click', async () => {
-  try {
-    const text = await navigator.clipboard.readText();
-    if (text) {
-      els.input.value = text;
-      parse();
-    } else {
+if (els.input && els.btnParse && els.btnPaste) {
+  els.btnParse.addEventListener('click', parse);
+  els.input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') parse();
+  });
+  els.btnPaste.addEventListener('click', async () => {
+    try {
+      const text = await navigator.clipboard.readText();
+      if (text) {
+        els.input.value = text;
+        parse();
+      } else {
+        showToast(t('p_err_empty'));
+      }
+    } catch (err) {
       showToast(t('p_err_empty'));
     }
-  } catch (err) {
-    showToast(t('p_err_empty'));
-  }
-});
+  });
+}

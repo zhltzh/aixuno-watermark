@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>视频去水印工具 — 修复、模糊、裁剪 | Aixuno 视频去水印</title>
+    <meta name="description" content="上传你自有视频，框选水印区域，选择修复、模糊或裁剪，服务端 ffmpeg 处理。免费，无需注册，文件 24 小时自动删除。" />
+    <meta name="theme-color" content="#2563eb" />
+    <link rel="canonical" href="https://watermark.aixuno.com/zh/remove.html" />
+    <link rel="alternate" hreflang="en" href="https://watermark.aixuno.com/remove.html" />
+    <link rel="alternate" hreflang="zh-CN" href="https://watermark.aixuno.com/zh/remove.html" />
+    <link rel="alternate" hreflang="x-default" href="https://watermark.aixuno.com/remove.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Aixuno 视频去水印" />
+    <meta property="og:title" content="视频去水印工具 | Aixuno 视频去水印" />
+    <meta property="og:description" content="上传自有视频，框选水印区域，修复、模糊或裁剪一键处理。免费，无需注册。" />
+    <meta property="og:url" content="https://watermark.aixuno.com/zh/remove.html" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%232563eb'/%3E%3Cpath fill='%23fff' d='M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm2.5 3.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5ZM10 8.5v2h9v-2h-9Zm-4 5v2h5v-2H6Zm7 0v2h6v-2h-6Z'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="/src/site.css" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"视频去水印工具 | Aixuno 视频去水印","description":"上传自有视频，框选水印区域，修复、模糊或裁剪一键处理。免费，无需注册。","url":"https://watermark.aixuno.com/zh/remove.html","inLanguage":"zh-CN","isPartOf":{"@type":"WebSite","name":"Aixuno 视频去水印","url":"https://watermark.aixuno.com/zh/"},"publisher":{"@type":"Organization","name":"Aixuno 视频去水印","url":"https://watermark.aixuno.com/zh/"}}]}</script>
+  </head>
+  <body>
+    <div id="network" class="network"></div>
+    <header class="site-header">
+      <div class="site-header__inner container">
+        <a class="brand" href="./index.html"><span class="brand__mark">A</span>Aixuno <span class="brand__site" data-i18n="brand_site">视频去水印</span></a>
+        <nav class="mini-nav">
+          <a href="./index.html" data-i18n="p_nav">链接解析</a>
+          <a href="./remove.html" aria-current="page" data-i18n="rm_nav">去水印工具</a>
+          <a href="../guides/index.html" data-i18n="nav_guides">教程</a>
+        </nav>
+        <div class="lang-switch" id="lang-switch" role="group" data-i18n-aria="lang_label" aria-label="Language"></div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero hero--compact">
+        <p class="eyebrow" data-i18n="hero_eyebrow">免费 · 无需注册 · 服务端 ffmpeg</p>
+        <h1 data-i18n="hero_title">去除视频中的水印</h1>
+        <p class="lead" data-i18n="hero_lead">框选水印区域，选择修复、模糊或裁剪，剩下的交给服务端 ffmpeg。仅处理你拥有的视频——快速、私密、免费。</p>
+      </section>
+
+      <section class="workspace section--tight" id="workspace">
+        <div class="container">
+          <ul class="hero-badges hero-badges--inline">
+            <li data-i18n="hero_badge_1">免费使用</li>
+            <li data-i18n="hero_badge_2">无需账号</li>
+            <li data-i18n="hero_badge_3">文件 24 小时自动删除</li>
+          </ul>
+
+          <a class="parse-entry" href="./parse.html">
+            <span class="parse-entry__badge" data-i18n="p_entry_badge">新</span>
+            <span class="parse-entry__body">
+              <strong data-i18n="p_entry_title">有分享链接？</strong>
+              <span data-i18n="p_entry_desc">粘贴抖音 / 快手 / 小红书 / B 站链接，直接解析下载原视频——无需上传。</span>
+            </span>
+            <span class="parse-entry__link" data-i18n="p_entry_link">打开链接解析 →</span>
+          </a>
+
+          <div id="wm-empty">
+            <div id="dropzone" class="dropzone" tabindex="0" role="button" data-i18n-aria="w_dz_main_strong" aria-label="上传视频">
+              <input id="file-input" type="file" accept="video/mp4,video/quicktime,.mp4,.mov" hidden />
+              <div class="dz-inner">
+                <svg viewBox="0 0 24 24" width="44" height="44" aria-hidden="true">
+                  <path fill="currentColor" d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm2.5 3.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5ZM10 8.5v2h9v-2h-9Zm-4 5v2h5v-2H6Zm7 0v2h6v-2h-6Z" />
+                </svg>
+                <p class="dz-main"><strong data-i18n="w_dz_main_strong">拖拽视频到此处</strong> <span data-i18n="w_dz_main_rest">或点击选择文件</span></p>
+                <p class="dz-hint" data-i18n="w_dz_hint">MP4 · MOV · 最大 200MB、5 分钟以内</p>
+              </div>
+            </div>
+            <p class="footnote"><span class="tag tag-cloud" data-i18n="badge_cloud">云端处理 · 文件 24 小时后自动删除</span></p>
+          </div>
+
+          <div id="wm-editor" hidden>
+            <div class="box-stage" id="box-stage">
+              <video id="wm-video" playsinline muted preload="metadata"></video>
+              <canvas id="box-overlay" class="box-overlay"></canvas>
+            </div>
+            <p class="footnote footnote--center" data-i18n="w_stage_hint">在视频画面上拖拽框选水印区域，可添加多个选区。</p>
+
+            <div class="panel panel--tight">
+              <h3 data-i18n="w_boxes_title">已选区域</h3>
+              <div class="boxes-list" id="boxes-list"></div>
+            </div>
+
+            <div class="panel">
+              <h3 data-i18n="w_method_title">处理方式</h3>
+              <div class="method-cards" id="method-cards">
+                <label class="method-card selected">
+                  <input type="radio" name="method" value="blur" checked />
+                  <h4 data-i18n="w_m_blur_t">模糊（推荐）</h4>
+                  <p data-i18n="w_m_blur_d">强力模糊所选区域——适合复杂或动态水印。</p>
+                </label>
+                <label class="method-card">
+                  <input type="radio" name="method" value="delogo" />
+                  <h4 data-i18n="w_m_delogo_t">修复（实验性）</h4>
+                  <p data-i18n="w_m_delogo_d">用周边像素插值覆盖水印——适合静态半透明水印。</p>
+                </label>
+                <label class="method-card">
+                  <input type="radio" name="method" value="crop" />
+                  <h4 data-i18n="w_m_crop_t">裁剪去除</h4>
+                  <p data-i18n="w_m_crop_d">直接裁掉所在边缘区域——损失部分画面，但完全无痕。</p>
+                </label>
+              </div>
+            </div>
+
+            <label class="agree-row">
+              <input type="checkbox" id="wm-agree" />
+              <span data-i18n="w_disclaimer">我拥有该视频的版权，或已获得编辑授权。</span>
+            </label>
+
+            <div class="actions-row">
+              <button id="btn-submit" class="button button--primary" data-i18n="w_submit">开始去水印</button>
+              <button id="btn-reset" class="button button--secondary" data-i18n="w_result_replay">再处理一个视频</button>
+            </div>
+
+            <div id="wm-progress" class="progress-wrap" hidden>
+              <div class="progress"><div class="progress-fill" id="progress-fill"></div></div>
+              <p class="progress-text" id="progress-text">排队中…</p>
+            </div>
+
+            <div id="wm-result" class="panel" hidden>
+              <h3 data-i18n="w_result_title">完成——预览与下载</h3>
+              <div class="result-media"><video id="result-video" controls playsinline></video></div>
+              <div class="actions-row">
+                <a id="btn-result-download" class="button button--primary" download data-i18n="w_result_download">下载视频</a>
+                <button id="btn-result-replay" class="button button--secondary" data-i18n="w_result_replay">再处理一个视频</button>
+              </div>
+              <p class="footnote" data-i18n="w_result_expires">结果保留 24 小时</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="examples">
+        <div class="container">
+          <p class="eyebrow" data-i18n="ex_eyebrow">处理前后</p>
+          <h2 data-i18n="ex_title">去水印效果一览</h2>
+          <p class="section-sub" data-i18n="ex_sub"></p>
+          <div class="examples-grid">
+            <article class="example-card">
+              <div class="example-card__images">
+                <figure><img src="/examples/example-1-before.jpg" alt="去除水印前的视频帧" width="900" height="506" loading="lazy" /><figcaption data-i18n="ex_before">处理前</figcaption></figure>
+                <figure><img src="/examples/example-1-after.jpg" alt="去除水印后的视频帧" width="900" height="506" loading="lazy" /><figcaption data-i18n="ex_after">处理后</figcaption></figure>
+              </div>
+              <div class="example-card__body">
+                <h3 data-i18n="ex1_title">角落 Logo 修复</h3>
+                <p data-i18n="ex1_desc"></p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="workflow section" id="how">
+        <div class="container">
+          <p class="eyebrow" data-i18n="steps_eyebrow">使用流程</p>
+          <h2 data-i18n="steps_title">三步清理视频水印</h2>
+          <p class="section-sub" data-i18n="steps_sub"></p>
+          <div class="steps">
+            <div class="step"><span class="step-num">01</span><h3 data-i18n="step1_title">上传并框选</h3><p data-i18n="step1_desc"></p></div>
+            <div class="step"><span class="step-num">02</span><h3 data-i18n="step2_title">选择处理方式</h3><p data-i18n="step2_desc"></p></div>
+            <div class="step"><span class="step-num">03</span><h3 data-i18n="step3_title">预览并下载</h3><p data-i18n="step3_desc"></p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="features">
+        <div class="container">
+          <p class="eyebrow" data-i18n="feat_eyebrow">为什么选择 Aixuno 去水印</p>
+          <h2 data-i18n="feat_title">精准去除，坦诚处理</h2>
+          <div class="cards-grid">
+            <div class="feature-card"><div class="feature-icon"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M4 5h16v14H4zM8 9h8v6H8z"/></svg></div><h3 data-i18n="feat1_title">三种去除方式</h3><p data-i18n="feat1_desc"></p></div>
+            <div class="feature-card"><div class="feature-icon"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/></svg></div><h3 data-i18n="feat2_title">支持多个选区</h3><p data-i18n="feat2_desc"></p></div>
+            <div class="feature-card"><div class="feature-icon"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm-2 6 6 4-6 4V8Z"/></svg></div><h3 data-i18n="feat3_title">服务端 ffmpeg</h3><p data-i18n="feat3_desc"></p></div>
+            <div class="feature-card"><div class="feature-icon"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M4 12h4v8H4zM10 6h4v14h-4zM16 10h4v10h-4z"/></svg></div><h3 data-i18n="feat4_title">进度清晰可见</h3><p data-i18n="feat4_desc"></p></div>
+            <div class="feature-card"><div class="feature-icon"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3Z"/></svg></div><h3 data-i18n="feat5_title">默认保护隐私</h3><p data-i18n="feat5_desc"></p></div>
+            <div class="feature-card"><div class="feature-icon"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm1 5v5.3l4 2.4-1 1.7-5-3V7h2Z"/></svg></div><h3 data-i18n="feat6_title">版权优先设计</h3><p data-i18n="feat6_desc"></p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--surface" id="use-cases">
+        <div class="container">
+          <p class="eyebrow" data-i18n="use_eyebrow">使用场景</p>
+          <h2 data-i18n="use_title">为创作者清理自己的素材</h2>
+          <div class="cards-grid">
+            <div class="usecase"><h3 data-i18n="use1_title">旧项目导出</h3><p data-i18n="use1_desc"></p></div>
+            <div class="usecase"><h3 data-i18n="use2_title">屏幕录制</h3><p data-i18n="use2_desc"></p></div>
+            <div class="usecase"><h3 data-i18n="use3_title">客户交付</h3><p data-i18n="use3_desc"></p></div>
+            <div class="usecase"><h3 data-i18n="use4_title">家庭视频</h3><p data-i18n="use4_desc"></p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--surface" id="faq">
+        <div class="container">
+          <p class="eyebrow" data-i18n="faq_eyebrow">常见问题</p>
+          <h2 data-i18n="faq_title">你可能想问</h2>
+          <div class="faq-list">
+            <details class="faq-item" open><summary data-i18n="faq1_q">服务免费吗？</summary><p data-i18n="faq1_a"></p></details>
+            <details class="faq-item"><summary data-i18n="faq2_q">支持解析抖音或 TikTok 链接去水印吗？</summary><p data-i18n="faq2_a"></p></details>
+            <details class="faq-item"><summary data-i18n="faq3_q">哪种方式效果最好？</summary><p data-i18n="faq3_a"></p></details>
+            <details class="faq-item"><summary data-i18n="faq4_q">处理需要多久？</summary><p data-i18n="faq4_a"></p></details>
+            <details class="faq-item"><summary data-i18n="faq5_q">我的视频会怎样处理？</summary><p data-i18n="faq5_a"></p></details>
+            <details class="faq-item"><summary data-i18n="faq6_q">动态水印能去除吗？</summary><p data-i18n="faq6_a"></p></details>
+            <details class="faq-item"><summary data-i18n="faq7_q">手机上能用吗？</summary><p data-i18n="faq7_a"></p></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="ecosystem">
+        <div class="container">
+          <p class="eyebrow" data-i18n="eco_eyebrow">Aixuno 工具生态</p>
+          <h2 data-i18n="eco_title">更多 Aixuno 免费工具</h2>
+          <div class="ecosystem__grid">
+            <a class="ecosystem-card" style="--eco-grad:linear-gradient(135deg,#f59e0b,#f97316)" href="https://aixuno.com/"><span class="eco-icon"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M6 2h9l5 5v15H6zM14 3.5V8h4.5zM8 12h8v1.6H8zm0 3.4h8V17H8z"/></svg></span><strong>Markdown 转换</strong><span>将 AI 回答转换为 Word、PDF 与干净的 Markdown。</span><em>↗</em></a>
+            <a class="ecosystem-card" style="--eco-grad:linear-gradient(135deg,#d946ef,#ec4899)" href="https://image.aixuno.com/"><span class="eco-icon"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M19 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 14H5l3.5-4.5 2.5 3 3.5-4.5L19 18ZM8.5 6A1.75 1.75 0 1 1 8.5 9.5 1.75 1.75 0 0 1 8.5 6Z"/></svg></span><strong>Pixkit 图片批量处理</strong><span>在浏览器中批量转换、缩放与优化图片。</span><em>↗</em></a>
+            <a class="ecosystem-card" style="--eco-grad:linear-gradient(135deg,#0ea5e9,#10b981)" href="https://compress.aixuno.com/"><span class="eco-icon"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2 9.5 4.5h5zM4 7h16v3H4zm0 5h16v3H4zm8 5-2.5 2.5h5z"/></svg></span><strong>文件压缩</strong><span>减小图片和文档体积，方便存储与分享。</span><em>↗</em></a>
+            <a class="ecosystem-card" style="--eco-grad:linear-gradient(135deg,#f43f5e,#ef4444)" href="https://pdf.aixuno.com/"><span class="eco-icon"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M6 2h9l5 5v15H6zm4 7v2h1.5a2.5 2.5 0 0 0 0-5H8zm6 0v2h1.5a2.5 2.5 0 0 0 0-5z"/></svg></span><strong>PDF 工具</strong><span>使用专注、易用的浏览器工具处理 PDF。</span><em>↗</em></a>
+            <a class="ecosystem-card" style="--eco-grad:linear-gradient(135deg,#8b5cf6,#6366f1)" href="https://bg.aixuno.com/"><span class="eco-icon"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5Z"/></svg></span><strong>AI 抠图</strong><span>通过 AI 工作流快速移除图片背景。</span><em>↗</em></a>
+            <a class="ecosystem-card" style="--eco-grad:linear-gradient(135deg,#3b82f6,#1d4ed8)" href="https://scan.aixuno.com/"><span class="eco-icon"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M4 4h16v4H4zm0 6h16v2H4zm0 4h16v2H4zm0 4h10v2H4z"/></svg></span><strong>文档扫描</strong><span>手机拍照变清晰扫描件，本地 OCR 生成 PDF。</span><em>↗</em></a>
+            <a class="ecosystem-card" style="--eco-grad:linear-gradient(135deg,#ec4899,#f43f5e)" href="https://idphoto.aixuno.com/"><span class="eco-icon"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm0 2c-4 0-7 2-7 5v3h14v-3c0-3-3-5-7-5Z"/></svg></span><strong>证件照制作</strong><span>标准证件照，背景与尺寸预设一键搞定。</span><em>↗</em></a>
+            <a class="ecosystem-card" style="--eco-grad:linear-gradient(135deg,#6366f1,#4338ca)" href="https://restore.aixuno.com/"><span class="eco-icon"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 4.5A5.5 5.5 0 0 0 6.5 10c0 1.2.4 2.3 1 3.2l-2 3.3h3.1l1.5 2.5 2.6-4.4A5.5 5.5 0 1 0 12 4.5Zm0 3a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"/></svg></span><strong>老照片修复</strong><span>免费修复老照片——本地即时修复 + AI 深度修复。</span><em>↗</em></a>
+            <a class="ecosystem-card is-current" style="--eco-grad:linear-gradient(135deg,#06b6d4,#2563eb)" href="https://watermark.aixuno.com/"><span class="eco-icon"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm2.5 3.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5ZM10 8.5v2h9v-2h-9Zm-4 5v2h5v-2H6Zm7 0v2h6v-2h-6Z"/></svg></span><strong>视频去水印</strong><span>去除你自有视频的水印。</span><em>↗</em></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <span>© 2026 Aixuno · <span data-i18n="footer_rights">用心清理你的每一帧视频。</span></span>
+        <span class="footer-links">
+          <a href="./about.html" data-i18n="footer_about">关于</a>
+          <a href="./contact.html" data-i18n="footer_contact">联系我们</a>
+          <a href="./privacy.html" data-i18n="footer_privacy">隐私</a>
+          <a href="./terms.html" data-i18n="footer_terms">条款</a>
+          <a href="./disclaimer.html" data-i18n="footer_disclaimer">免责声明</a>
+          <a href="./changelog.html" data-i18n="footer_changelog">更新日志</a>
+        </span>
+        <span class="footer-sites" id="footer-sites"></span>
+      </div>
+    </footer>
+
+    <div id="busy" class="busy" hidden><div class="spinner" role="progressbar" aria-label="处理中"></div><p id="busy-text">处理中…</p></div>
+    <div id="toast" class="toast" role="status" hidden></div>
+    <script type="module" src="/src/remove.js"></script>
+  </body>
+</html>
