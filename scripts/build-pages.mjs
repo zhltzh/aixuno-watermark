@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync, mkdirSync, statSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, statSync, existsSync } from 'node:fs';
 import { execSync } from 'node:child_process';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -382,16 +382,24 @@ for (const p of allPaths) {
   const rel = clean === '/' ? 'index.html' : clean.endsWith('/') ? `${clean.slice(1)}index.html` : clean.slice(1);
   const enUrl = `https://watermark.aixuno.com${clean}`;
   const zhUrl = `https://watermark.aixuno.com/zh${clean}`;
-  // 每个页面都有中英双语版本，因此两条 URL 都附带完整的 hreflang 交替标注
-  for (const [loc, relFile] of [[enUrl, rel], [zhUrl, `zh/${rel}`]]) {
+  // zh 镜像不存在时（如 parse.html 跳转页）只输出 en 条目，避免 sitemap 引用 404
+  const zhExists = existsSync(join(root, 'zh', rel));
+  const alternates = zhExists
+    ? [
+        `    <xhtml:link rel="alternate" hreflang="zh-CN" href="${zhUrl}"/>`,
+        `    <xhtml:link rel="alternate" hreflang="en" href="${enUrl}"/>`,
+        `    <xhtml:link rel="alternate" hreflang="x-default" href="${enUrl}"/>`,
+      ]
+    : [];
+  const urlEntries = [[enUrl, rel]];
+  if (zhExists) urlEntries.push([zhUrl, `zh/${rel}`]);
+  for (const [loc, relFile] of urlEntries) {
     urls.push(
       [
         '  <url>',
         `    <loc>${loc}</loc>`,
         `    <lastmod>${lastmod(relFile)}</lastmod>`,
-        `    <xhtml:link rel="alternate" hreflang="zh-CN" href="${zhUrl}"/>`,
-        `    <xhtml:link rel="alternate" hreflang="en" href="${enUrl}"/>`,
-        `    <xhtml:link rel="alternate" hreflang="x-default" href="${enUrl}"/>`,
+        ...alternates,
         '  </url>',
       ].join('\n')
     );
